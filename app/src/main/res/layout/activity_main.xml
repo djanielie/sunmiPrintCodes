@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout android:background="@drawable/background_main"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:orientation="vertical"
+        >
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginTop="50dp"
+            android:background="@color/weaker_white"
+            android:id="@+id/inserted"
+            android:hint="Inseres le texte ici"
+            android:padding="10dp"
+            android:textColor="@color/white"
+            />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="OK"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/button_background"
+            android:textColor="@color/white"
+
+            android:id="@+id/button_generer"
+            />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Generer Aleatoirement"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/button_background"
+            android:textColor="@color/white"
+            android:id="@+id/button_print"
+            />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Choisir a partir de la liste"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/button_background"
+            android:textColor="@color/white"
+            android:id="@+id/button_liste"
+            />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:background="@drawable/button_background"
+            android:layout_marginTop="20dp"
+            android:id="@+id/view_img"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:textColor="@color/red"
+            android:id="@+id/warning_message"
+            />
+
+    </LinearLayout>
+
+
+    </LinearLayout>
+
+

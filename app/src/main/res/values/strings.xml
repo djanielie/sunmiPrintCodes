@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">BarcodeConcept</string>
+    <string name="This_is_the_second_activity">this is the second activity</string>
+    <string name="Previous_activity">Previous activity</string>
+    <string name="Print_code">Print code</string>
+    <string name="Next_activity">next activity</string>
+    <string name="Generate_code">Generate Code</string>
+    <string name="Inseres_le_texte_ici">Insert your text here</string>
+</resources>
