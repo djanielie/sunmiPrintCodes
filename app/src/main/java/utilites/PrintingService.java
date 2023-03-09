@@ -17,7 +17,7 @@ import static android.widget.Toast.LENGTH_SHORT;
 public class PrintingService {
     String inner_text;
     Context inner_context;
-    InnerPrinterCallback innerPrinterCallback1;
+    InnerPrinterCallback innerPrinterCallback1,innerPrinterCallback2;
     Bitmap bitmap;
     boolean result;
     GenerateurCodeQR gencode;
@@ -26,16 +26,17 @@ public class PrintingService {
         this.inner_text=text_to_print;
         this.inner_context=ctxt;
         gencode=new GenerateurCodeQR();
-        this.bitmap=gencode.genererInterne(text_to_print);
+        this.bitmap=gencode.genererBarcode(text_to_print);
         innerPrinterCallback1=new InnerPrinterCallback() {
             @Override
             protected void onConnected(SunmiPrinterService service) {
                 try {
-                    Toast.makeText(inner_context,"Impression reussie!", LENGTH_SHORT).show();
+                    //Toast.makeText(inner_context,"Impression reussie!", LENGTH_SHORT).show();
+
                     service.printBitmap(bitmap, new InnerResultCallback() {
                         @Override
                         public void onRunResult(boolean isSuccess) throws RemoteException {
-                            Toast.makeText(inner_context,"Succes!", LENGTH_SHORT).show();
+                          Toast.makeText(inner_context,"There might be an issue!", LENGTH_SHORT).show();
                         }
 
                         @Override
@@ -63,7 +64,52 @@ public class PrintingService {
                 Toast.makeText(inner_context,"Imprimante deconnectee", LENGTH_SHORT).show();
             }
         };
+            innerPrinterCallback2=new InnerPrinterCallback(){
+
+
+                @Override
+                protected void onConnected(SunmiPrinterService service) {
+                    try{
+                        Toast.makeText(inner_context,"Impression barcode reussie!", LENGTH_SHORT).show();
+                    service.printBarCode("ABCDKKK1",128,200,100,1, new InnerResultCallback() {
+                        @Override
+                        public void onRunResult(boolean isSuccess) throws RemoteException {
+
+                        }
+
+                        @Override
+                        public void onReturnString(String result) throws RemoteException {
+
+                        }
+
+                        @Override
+                        public void onRaiseException(int code, String msg) throws RemoteException {
+
+                        }
+
+                        @Override
+                        public void onPrintResult(int code, String msg) throws RemoteException {
+
+                        }
+                    });
+
+
+
+                }
+                    catch (RemoteException exception){
+
+
+                    }
+                }
+
+                @Override
+                protected void onDisconnected() {
+
+                    Toast.makeText(inner_context,"Imprimante deconnectee", LENGTH_SHORT).show();
+                }
+            };
     }
+
 
     public void imprimer(){
         try {
